@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+欢迎你<div id="content"></div>
+</body>
+<script src="page.js"></script>
+<script>
+    setTimeout(function(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('get','/ajax',true);
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4&& this.status ==200){
+                document.querySelector('#content').innerHTML = this.responseText;
+            }
+        }
+    },5000)
+</script>
+</html>
